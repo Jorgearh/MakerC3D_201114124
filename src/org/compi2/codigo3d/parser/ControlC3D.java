@@ -9,6 +9,8 @@ public class ControlC3D {
     private static int temp = 0;
     private static String c3d = "";
     
+    private static int etq = 0;
+    
     /**
      * Reinicia las variables estáticas relacionadas con la generación del
      * código de tres direcciones.
@@ -16,6 +18,7 @@ public class ControlC3D {
     public static void reiniciar(){
         temp = 0;
         c3d = "";
+        etq = 0;
     }
     
     /**
@@ -25,6 +28,16 @@ public class ControlC3D {
     public static String generaTemp(){
         return "t$"+temp++;
     }
+    
+    
+    /***
+     * Genera la siguiente etiqueta
+     * @return La siguente etiqueta (L$#)
+     */
+    public static String generaEtq(){
+        return "L$" + etq++;
+    }
+    
     
     /**
      * Agrega la sentencia que recibe como parámetro a la cadena de código

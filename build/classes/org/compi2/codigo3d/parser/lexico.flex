@@ -29,9 +29,9 @@ AND             = "&&"
 OR              = "||"
 NOT             = "!"
 
-MAS		= "+"
-MENOS		= "-"
-MULT       	= "*"
+MAS				= "+"
+MENOS			= "-"
+MULT       		= "*"
 DIV             = "/"
 POT             = "^"
 
@@ -42,8 +42,8 @@ ID              = [A-Za-z][_0-9A-Za-z]*
 ENTERO          = [0-9]+
 DECIMAL         = [0-9]+"."[0-9]+
 
-SPACE   = [\ \r\t\f\t]
-ENTER   = [\ \n]
+SPACE   		= [\ \r\t\f\t]
+ENTER   		= [\ \n]
 
 %%
 
@@ -62,15 +62,15 @@ ENTER   = [\ \n]
 <YYINITIAL> {NOT}           { return new Symbol(sym.NOT, yyline, yycolumn, null); }
 
 <YYINITIAL> {MAS}           { return new Symbol(sym.MAS, yyline, yycolumn, null); }
-<YYINITIAL> {MENOS}	    { return new Symbol(sym.MENOS, yyline, yycolumn, null); }
+<YYINITIAL> {MENOS}	    	{ return new Symbol(sym.MENOS, yyline, yycolumn, null); }
 <YYINITIAL> {MULT}          { return new Symbol(sym.MULT, yyline, yycolumn, null); }
-<YYINITIAL> {DIV}	    { return new Symbol(sym.DIV, yyline, yycolumn, null); }
-<YYINITIAL> {POT}	    { return new Symbol(sym.POT, yyline, yycolumn, null); }
+<YYINITIAL> {DIV}	    	{ return new Symbol(sym.DIV, yyline, yycolumn, null); }
+<YYINITIAL> {POT}	    	{ return new Symbol(sym.POT, yyline, yycolumn, null); }
 <YYINITIAL> {PAR_IZQ}	    { return new Symbol(sym.PAR_IZQ, yyline, yycolumn, null); }
 <YYINITIAL> {PAR_DER}	    { return new Symbol(sym.PAR_DER, yyline, yycolumn, null); }
 
-<YYINITIAL> {SPACE}     { /*Espacios en blanco, ignorados*/ }
-<YYINITIAL> {ENTER}     { /*Saltos de linea, ignorados*/}
+<YYINITIAL> {SPACE}    		{ /*Espacios en blanco, ignorados*/ }
+<YYINITIAL> {ENTER}     	{ /*Saltos de linea, ignorados*/}
 
 <YYINITIAL>. {
         String errLex = "Error léxico, caracter irreconocible: '"+yytext()+"' en la línea: "+(yyline+1)+" y columna: "+yycolumn;
